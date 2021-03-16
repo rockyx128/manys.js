@@ -1,6 +1,13 @@
 # manys.js
 ( Small | Smart | Support | Simple | Short | Sheet | Special | Surprise ) JS libary for Demos
 It is used to quickly write a demo,not a good choice for project . Enjoy it.
+* Small : This library is very small.
+* Support : Dom support libary.
+* Simple : easy to use, to code.
+* Short : attribute -> attrs , code less,get set more.
+* Sheet : you can styles like css sheet
+* Special : This is very special libary, Unlike most libraries, he doesn't follow best practices, but better fun.
+* Surprise : Less code, more functions
 
 ## How to use
 
