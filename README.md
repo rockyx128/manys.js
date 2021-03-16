@@ -151,13 +151,33 @@ Now you can write a longlong scope
 const card = $('.card').attrs('role','button').styles('color','#444').classes('active cur').$('.title')....
 ```
 Element crud
-creates : createElement
+create : createElement
 ```js
 // before
 const button = document.createElement('button')
 const svgCircle = document.createElementNS('http://www.w3.org/2000/svg','circle')
 
 // after
-const button = doc.creates('button')
-const svgCircle = doc.creates('circle','svg')
+const button = doc.create('button')
+const svgCircle = doc.create('circle','svg')
+```
+Add Element to ParentElemnet
+ParentElemnet.appends
+
+```js
+const wrapper = $('#wrapper')
+const boxes = $$('.box')
+
+// add a lot box
+wrapper.appends(boxes)
+
+// add a lot box by index
+wrapper.appends([
+  {node:box1,index:1},
+  {node:box3},
+  {node:box5,index:-2},
+  [box6,6],
+  [box7,'last']
+])
+
 ```
