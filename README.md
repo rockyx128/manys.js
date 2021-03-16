@@ -30,44 +30,37 @@ doc : document
 
 selectElement like Jquery
 
-$ : document.querySelector
-$$ : [...document.querySelectorAll]
+$ : document.querySelector -> Element
+$$ : document.querySelectorAll -> Array Elements
 
 ```js
 // before
-const input = document.querySelector('input[type=text]')
+let title = document.querySelector('.title')
 
 // after
-const input = $('input')
+let title = $('.title')
 
 // before 
-const cards = document.querySelectorAll('.cards')
+let cards = document.querySelectorAll('.cards')
 Array.from(cards).forEach(card => card.style['border-radius']='3px')
 // after
-const cards = $$('.cards')
-cards.forEach(card => card.style['border-radius']='3px')
+let cards = $$('.card')
+cards.forEach(card => card.style['color']='#f99f9f')
 ```
 
-element.$ : element.querySelector 
-element.$$ : [...element.querySelectorAll]
+element.$ : element.querySelector -> Element
+element.$$ : element.querySelectorAll -> Array Elements
 ```js
 before
-// .cards > .title > h1
+// .cards > .card-wrapper > .card
 
 // before
-const title = document.querySelctor('.card').querySelector('h1').innerText
+let cards = document.querySelector('.cards').querySelectorAll('.card')
+let innerTexts = [...cards].map(c=>c.innerText)
 
 // after
-const title = $('.card').$('h1').innerText
+let innerTexts = $('.cards').$$('.card').map(c=>c.innerText)
 
-// .cards > p
-// before 
-const ps = document.querySelctor('.card').querySelctorAll(p)
-;[...ps].forEach(p => p.style.color = '#444')
-
-// after
-const ps = $('.card').$$('p')
-ps.forEach(p => p.style.color = '#444')
 ```
 Add or Remove event like Jquery
 ```js
@@ -77,99 +70,95 @@ const clickHandler = (e) => {
 // before
 document.addEventListener('click', clickHandler)
 
-// after
-doc.on('click',clickHandler)
-
-// before
 document.removeEventListener('click',clickHandler)
 
 // after
+doc.on('click',clickHandler)
+
 doc.off('click',clickHandler)
 ```
 Edit attribute classList and style like Jquery
 
 Element.attrs
 ```js
-const input = $('input')
+let cardsContainer = $('.cards')
 
 // get
-const type = input.attrs('type')
+let type = cardsContainer.attrs('type')
+let class = cardsContainer.attrs('class')
 
 // set
-input.attrs('type','text')
+cardsContainer.attrs('type','diffenentCardsType')
 
 // set a lot of attrs one time
-input.attrs({
-  type:'range',
-  max:10,
-  min:1,
-  step:1,
-  value:1
+cardsContainer.attrs({
+  role:'cards',
+  for:'cards',
+  abc:'edf'
 })
 ```
 Element.classes
 ```js
-const card = $('.card')
-
+let card1 = $('.cards .card')
 // get 
-const classList = card.classes() // -> small
+let className = card1.classes() // -> card
 
 // set
-card.classes('active')  // -> active
+card1.classes('card','active')  // -> card active
 
 // set a lot // 
-card.classes('active border big') // -> active border big
+card1.classes('card', 'active','cur') // -> active border big
 
 // add remove toggle class dont change
-card.classList.add('active')
-card.classList.remove('active')
-card.classList.toggle('active')
-card.classList.contains('active')
+card1.classList.add('active')
+card1.classList.remove('active')
+card1.classList.toggle('active')
+card1.classList.contains('active')
 
 // you can choice classes function as your need
 ```
 Element.styles
 ```js
-const card = $('.card')
+let card2 = $('.cards .card-wrapper:nth-child(2) .card')
 
 // get
-const styles = card.styles()
+let styles = card2.styles()
 
 // set
-card.styles('background-color','pink')
+card2.styles('background-color','#fff4f0')
 
 // set a log
 // just like write css, but not quite the same. cssobject -> jsobject
-card.styles({
-  'background-color':'pink',
-  'border-radius':'3px',
-  'display':'flex'
+card2.styles({
+  'background-color':'#fefff0',
+  'border-radius':'20px',
+  'color':'#fba0df'
 })
 ```
 Now you can write a longlong scope
 ```js
-const card = $('.card').attrs('role','button').styles('color','#444').classes('active cur').$('.title')....
+let card3 = $('.cards .card-wrapper:nth-child(3) .card').attrs('role','button').styles('color','#444').classes('active','cur')
 ```
 Element crud
 create : createElement
 ```js
 // before
-const button = document.createElement('button')
-const svgCircle = document.createElementNS('http://www.w3.org/2000/svg','circle')
+let button = document.createElement('button')
+let svgCircle = document.createElementNS('http://www.w3.org/2000/svg','circle')
 
 // after
-const button = doc.create('button')
-const svgCircle = doc.create('circle','svg')
+let button = doc.create('button')
+let svgCircle = doc.create('circle','svg')
 ```
 Add Element to ParentElemnet
 ParentElemnet.appends
 
 ```js
-const wrapper = $('#wrapper')
-const boxes = $$('.box')
+let cardsContainer = $('.cards')
+let button = doc.create('button')
 
 // add a lot box
-wrapper.appends(boxes)
+cardsContainer.appends(button)
 
 // add a lot box by index
 wrapper.appends([
