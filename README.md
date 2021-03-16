@@ -1,5 +1,6 @@
 # manys.js
 ( Small | Smart | Support | Simple | Short | Sheet | Special | Surprise ) JS libary for Demos
+It is used to quickly write a demo,not a good choice for project . Enjoy it.
 
 ## How to use
 
@@ -47,7 +48,7 @@ const cards = $$('.cards')
 cards.forEach(card => card.style['border-radius']='3px')
 ```
 
-element.$ : element.querySelector
+element.$ : element.querySelector 
 element.$$ : [...element.querySelectorAll]
 ```js
 before
@@ -84,5 +85,79 @@ document.removeEventListener('click',clickHandler)
 
 // after
 doc.off('click',clickHandler)
+```
+Edit attribute classList and style like Jquery
 
+Element.attrs
+```js
+const input = $('input')
 
+// get
+const type = input.attrs('type')
+
+// set
+input.attrs('type','text')
+
+// set a lot of attrs one time
+input.attrs({
+  type:'range',
+  max:10,
+  min:1,
+  step:1,
+  value:1
+})
+```
+Element.classes
+```js
+const card = $('.card')
+
+// get 
+const classList = card.classes() // -> small
+
+// set
+card.classes('active')  // -> active
+
+// set a lot // 
+card.classes('active border big') // -> active border big
+
+// add remove toggle class dont change
+card.classList.add('active')
+card.classList.remove('active')
+card.classList.toggle('active')
+card.classList.contains('active')
+
+// you can choice classes function as your need
+```
+Element.styles
+```js
+const card = $('.card')
+
+// get
+const styles = card.styles()
+
+// set
+card.styles('background-color','pink')
+
+// set a log
+// just like write css, but not quite the same. cssobject -> jsobject
+card.styles({
+  'background-color':'pink',
+  'border-radius':'3px',
+  'display':'flex'
+})
+```
+Now you can write a longlong scope
+```js
+const card = $('.card').attrs('role','button').styles('color','#444').classes('active cur').$('.title')....
+```
+Element crud
+creates : createElement
+```js
+// before
+const button = document.createElement('button')
+const svgCircle = document.createElementNS('http://www.w3.org/2000/svg','circle')
+
+// after
+const button = doc.creates('button')
+const svgCircle = doc.creates('circle','svg')
+```
