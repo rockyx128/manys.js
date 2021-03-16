@@ -9,6 +9,8 @@ It is used to quickly write a demo,not a good choice for project . Enjoy it.
 * Special : This is very special libary, Unlike most libraries, he doesn't follow best practices, but better fun.
 * Surprise : Less code, more functions
 
+Open Demo[!https://rockyx128.github.io/manysjstest.html], then open devTools , take a few minutes, and you'll be in complete control of this toy lib.
+
 ## How to use
 
 You can use it quickly by copying the following code, enjoy...
