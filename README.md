@@ -22,7 +22,7 @@ The example is as follows
 
 - appendChild -> appends
 
-  ​
+## What is Manys.js
 
 It 's ( Small | Smart | Support | Simple | Short | Sheet | Special | Surprise ) JS library for Demos
 
@@ -67,6 +67,7 @@ log(1,2,3)
 Select element like Jquery
 
 `$ : document.querySelector -> Element`
+
 `$$ : document.querySelectorAll -> Array Elements`
 
 ```js
@@ -85,6 +86,7 @@ cards.forEach(card => card.style['color']='#f99f9f')
 ```
 
 `element.$ : element.querySelector -> Element`
+
 `element.$$ : element.querySelectorAll -> Array Elements`
 ```js
 before
