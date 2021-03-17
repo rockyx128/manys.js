@@ -1,15 +1,42 @@
 # manys.js
-( Small | Smart | Support | Simple | Short | Sheet | Special | Surprise ) JS libary for Demos
-It is used to quickly write a demo,not a good choice for project . Enjoy it.
-* Small : This library is very small.
-* Support : Dom support libary.
-* Simple : easy to use, to code.
-* Short : attribute -> attrs , code less,get set more.
-* Sheet : you can styles like css sheet
-* Special : This is very special libary, Unlike most libraries, he doesn't follow best practices, but better fun.
-* Surprise : Less code, more functions
 
-Open [Demo](https://rockyx128.github.io/manysjsTest.html), then open devTools , take a few minutes, and you'll be in complete control of this toy lib.
+## Why manys.js
+
+Simplify the complex long words to make them easier to accept and write. Mainly draw on the ideas of Jquery, But more radical and lighter than Jquery. The purpose is to write JsDemo quickly and easily and quickly realize the idea of the demo, without being limited to the realization of the production environment.
+
+The example is as follows
+
+- console.log  -> log
+
+- document -> doc
+
+- querySelector -> $
+
+- querySelectorAll -> $$
+
+- addEventListener -> on
+
+- removeEventListener -> off
+
+- setAttribute / getAttribute -> attrs
+
+- appendChild -> appends
+
+  ​
+
+It 's ( Small | Smart | Support | Simple | Short | Sheet | Special | Surprise ) JS library for Demos
+
+ It is used to quickly write a demo, not a good choice for the production environment. Enjoy it.
+
+- Small: This library is very small.
+- Support: Dom support library.
+- Simple: easy to use, to code.
+- Short : attribute -> attrs . code less,get set more.
+- Sheet: you can style it like a CSS sheet
+- Special: This is a very special library, Unlike most libraries, he doesn't follow best practices, but better fun.
+- Surprise: Less code, more functions
+
+Open [Demo](https://rockyx128.github.io/manysjsTest.html), then open dev tools, take a few minutes, and you'll be in complete control of this toy lib.
 
 ## How to use
 
@@ -27,7 +54,7 @@ minify version
 
 ## API
 
-log : console.log
+`log : console.log`
 ```js
 // before
 console.log(1,2,3)
@@ -35,12 +62,12 @@ console.log(1,2,3)
 // after
 log(1,2,3)
 ```
-doc : document
+`doc : document`
 
-selectElement like Jquery
+Select element like Jquery
 
-$ : document.querySelector -> Element
-$$ : document.querySelectorAll -> Array Elements
+`$ : document.querySelector -> Element`
+`$$ : document.querySelectorAll -> Array Elements`
 
 ```js
 // before
@@ -57,8 +84,8 @@ let cards = $$('.card')
 cards.forEach(card => card.style['color']='#f99f9f')
 ```
 
-element.$ : element.querySelector -> Element
-element.$$ : element.querySelectorAll -> Array Elements
+`element.$ : element.querySelector -> Element`
+`element.$$ : element.querySelectorAll -> Array Elements`
 ```js
 before
 // .cards > .card-wrapper > .card
@@ -72,6 +99,11 @@ let innerTexts = $('.cards').$$('.card').map(c=>c.innerText)
 
 ```
 Add or Remove event like Jquery
+
+`Element.on`
+
+`Element.off`
+
 ```js
 const clickHandler = (e) => {
   log('hi there...')
@@ -88,7 +120,7 @@ doc.off('click',clickHandler)
 ```
 Edit attribute classList and style like Jquery
 
-Element.attrs
+`Element.attrs`
 ```js
 let cardsContainer = $('.cards')
 
@@ -106,7 +138,7 @@ cardsContainer.attrs({
   abc:'edf'
 })
 ```
-Element.classes
+`Element.classes`
 ```js
 let card1 = $('.cards .card')
 // get 
@@ -126,7 +158,7 @@ card1.classList.contains('active')
 
 // you can choice classes function as your need
 ```
-Element.styles
+`Element.styles`
 ```js
 let card2 = $('.cards .card-wrapper:nth-child(2) .card')
 
@@ -144,12 +176,13 @@ card2.styles({
   'color':'#fba0df'
 })
 ```
-Now you can write a longlong scope
+Now you can write long long long chains, it's very easy to read, write and maintain.
+
 ```js
 let card3 = $('.cards .card-wrapper:nth-child(3) .card').attrs('role','button').styles('color','#444').classes('active','cur')
 ```
-Element crud
-create : createElement
+Element CRUD
+`create : createElement + createElementNS`
 ```js
 // before
 let button = document.createElement('button')
@@ -160,7 +193,7 @@ let button = doc.create('button')
 let svgCircle = doc.create('circle','svg')
 ```
 Add Element to ParentElemnet
-ParentElemnet.appends
+`ParentElemnet.appends`
 
 ```js
 let cardsContainer = $('.cards')
